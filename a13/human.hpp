@@ -41,7 +41,7 @@ public:
     Human();        // initialize to Human, 10 strength, 10 hitpoints
     Human(int newStrength, int newHitpoints);
     string getSpecies() const;  // returns the type of the species
-    int getDamage() const;  // returns the amount of damage this Creature inflicts                      // in one round of combat
+//    int getDamage() const;  // returns the amount of damage this Creature inflicts                      // in one round of combat
 };
 
 }

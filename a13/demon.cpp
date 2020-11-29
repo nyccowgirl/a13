@@ -54,7 +54,7 @@ int Demon::getDamage() const {
     
     // All Creatures inflict damage which is a random number up to their strength
     damage = Creature::getDamage();
-    cout << " attacks for " << damage << " points!" << endl;
+//    cout << " attacks for " << damage << " points!" << endl;
 
     
     // Demons can inflict damage of 50 with a 25% chance

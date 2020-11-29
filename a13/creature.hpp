@@ -43,8 +43,8 @@ namespace cs_creature {
             int getStrength() const;
             void setHitpoints(int newHitpoints);
             int getHitpoints() const;
-            string getSpecies() const;  // returns the type of the species
-            int getDamage() const;  // returns the amount of damage this Creature inflicts                      // in one round of combat
+            virtual string getSpecies() const = 0;  // returns the type of the species
+            virtual int getDamage() const;  // returns the amount of damage this Creature inflicts                      // in one round of combat
 
 
         private:

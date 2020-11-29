@@ -54,7 +54,7 @@ int Elf::getDamage() const {
     
     // All Creatures inflict damage which is a random number up to their strength
     damage = Creature::getDamage();
-    cout << getSpecies() << " attacks for " << damage << " points!" << endl;
+//    cout << getSpecies() << " attacks for " << damage << " points!" << endl;
 
     
     // Elves inflict double magical damage with a 50% chance

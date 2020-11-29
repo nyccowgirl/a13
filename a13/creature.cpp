@@ -64,15 +64,17 @@ int Creature::getHitpoints() const {
     return hitpoints;
 }
 
-string Creature::getSpecies() const {
-    return "Creature";
-}
+//string Creature::getSpecies() const {
+//    return "Creature";
+//}
 
 int Creature::getDamage() const {
     int damage;
     
     // All Creatures inflict damage which is a random number up to their strength
     damage = (rand() % strength) + 1;
+    cout << getSpecies() << " attacks for " << damage << " points!" << endl;
+
     return damage;
 }
 

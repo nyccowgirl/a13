@@ -49,15 +49,15 @@ string Cyberdemon::getSpecies() const {
     return "Cyberdemon";
 }
 
-int Cyberdemon::getDamage() const {
-    int damage;
-    
-    cout << "The Cyberdemon";
-    
-    // All Creatures inflict damage which is a random number up to their strength
-    // Demons can inflict damage of 50 with a 25% chance
-    damage = Demon::getDamage();
-    
-    return damage;
-}
+//int Cyberdemon::getDamage() const {
+//    int damage;
+//    
+////    cout << "The Cyberdemon";
+//    
+//    // All Creatures inflict damage which is a random number up to their strength
+//    // Demons can inflict damage of 50 with a 25% chance
+//    damage = Demon::getDamage();
+//    
+//    return damage;
+//}
 }

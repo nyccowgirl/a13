@@ -49,14 +49,14 @@ string Human::getSpecies() const {
     return "Human";
 }
 
-int Human::getDamage() const {
-    int damage;
-    
-    // All Creatures inflict damage which is a random number up to their strength
-    damage = Creature::getDamage();
-    cout << getSpecies() << " attacks for " << damage << " points!" << endl;
-    return damage;
-}
+//int Human::getDamage() const {
+//    int damage;
+//    
+//    // All Creatures inflict damage which is a random number up to their strength
+//    damage = Creature::getDamage();
+////    cout << getSpecies() << " attacks for " << damage << " points!" << endl;
+//    return damage;
+//}
 
 }
 

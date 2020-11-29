@@ -52,7 +52,7 @@ string Balrog::getSpecies() const {
 int Balrog::getDamage() const {
     int damage;
     
-    cout << "The Balrog";
+//    cout << "The Balrog";
     
     // All Creatures inflict damage which is a random number up to their strength
     // Demons can inflict damage of 50 with a 25% chance
