@@ -33,7 +33,7 @@
 using namespace std;
 using namespace cs_creature;
 
-void battleArena(Creature &Creature1, Creature &Creature2);
+void battleArena(Creature &creature1, Creature &creature2);
 
 int main(int argc, const char * argv[]) {
     srand(static_cast<unsigned>(time(nullptr)));
@@ -104,22 +104,23 @@ int main(int argc, const char * argv[]) {
 
 }
 
-void battleArena(Creature &Creature1, Creature &Creature2) {
-    int temp;
+void battleArena(Creature &creature1, Creature &creature2) {
+    cout << "Let the battle begin:" << endl;
+    cout << creature1.getSpecies() + " has " << creature1.getHitpoints() << " to start.\n";
+    cout << creature2.getSpecies() + " has " << creature2.getHitpoints() << " to start.\n";
+    
     do {
-        temp = Creature2.getHitpoints() - Creature1.getDamage();
-        Creature2.setHitpoints(temp);
-        temp = Creature1.getHitpoints() - Creature2.getDamage();
-        Creature1.setHitpoints(temp);
+        creature2.setHitpoints(creature2.getHitpoints() - creature1.getDamage());
+        creature1.setHitpoints(creature1.getHitpoints() - creature2.getDamage());
         
-        if ((Creature1.getHitpoints() < 0) && (Creature2.getHitpoints() < 0)) {
-            cout << "Both creatures have dies and the battle is tied!" << endl;
-        } else if ((Creature1.getHitpoints() < 0) && (Creature2.getHitpoints() >= 0)) {
-            cout << Creature1.getSpecies() + " has won the battle!" << endl;
-        } else if ((Creature1.getHitpoints() >= 0) && (Creature2.getHitpoints() < 0)) {
-            cout << Creature2.getSpecies() + " has won the battle!" << endl;
+        if ((creature1.getHitpoints() < 0) && (creature2.getHitpoints() < 0)) {
+            cout << "Both creatures have died and the battle is tied!" << endl;
+        } else if ((creature1.getHitpoints() < 0) && (creature2.getHitpoints() >= 0)) {
+            cout << creature2.getSpecies() + " has won the battle!" << endl;
+        } else if ((creature1.getHitpoints() >= 0) && (creature2.getHitpoints() < 0)) {
+            cout << creature1.getSpecies() + " has won the battle!" << endl;
         }
-    } while ((Creature1.getHitpoints() >=0) && (Creature2.getHitpoints() >= 0));
+    } while ((creature1.getHitpoints() >=0) && (creature2.getHitpoints() >= 0));
 }
 
 /*
