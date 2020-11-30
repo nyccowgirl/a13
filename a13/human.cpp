@@ -32,31 +32,35 @@ using namespace std;
 namespace cs_creature {
 
 /*
- Documentation to be completed
+ 
+ Class Invariant: a Human object has inherits two data members from a Creature object -
+ strength, which stores the damage the Creature inflicts; and hitpoints, which stores the
+ damage the Creature can sustain.
+
  */
 
-Human::Human()
-: Creature()
-{
-}
+    Human::Human()
+    : Creature()
+    {
+    }
 
-Human::Human(int newStrength, int newHitpoints)
-: Creature(newStrength, newHitpoints)
-{
-}
 
-string Human::getSpecies() const {
-    return "Human";
-}
 
-//int Human::getDamage() const {
-//    int damage;
-//    
-//    // All Creatures inflict damage which is a random number up to their strength
-//    damage = Creature::getDamage();
-////    cout << getSpecies() << " attacks for " << damage << " points!" << endl;
-//    return damage;
-//}
 
+
+
+    Human::Human(int newStrength, int newHitpoints)
+    : Creature(newStrength, newHitpoints)
+    {
+    }
+
+
+
+
+
+
+    string Human::getSpecies() const {
+        return "Human";
+    }
 }
 

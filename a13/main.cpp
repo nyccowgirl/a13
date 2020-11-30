@@ -38,247 +38,117 @@ void battleArena(Creature &creature1, Creature &creature2);
 int main(int argc, const char * argv[]) {
     srand(static_cast<unsigned>(time(nullptr)));
     
-    Elf e(50, 50);
-    Balrog b(50, 50);
+    Elf e1(50, 50);
+    Balrog b1(50, 50);
     
-    battleArena(e, b);
+    battleArena(e1, b1);
     
-//    Human h1;
-//    Elf e1;
-//    Cyberdemon c1;
-//    Balrog b1;
-//
-//    Human h(20, 30);
-//    Elf e(40, 50);
-//    Cyberdemon c(60, 70);
-//    Balrog b(80, 90);
-//
-//
-//    cout << "default Human strength/hitpoints: " << h1.getStrength() << "/" << h1.getHitpoints() << endl;
-//    cout << "default Elf strength/hitpoints: " << e1.getStrength() << "/" << e1.getHitpoints() << endl;
-//    cout << "default Cyberdemon strength/hitpoints: " << c1.getStrength() << "/" << c1.getHitpoints() << endl;
-//    cout << "default Balrog strength/hitpoints: " << b1.getStrength() << "/" << b1.getHitpoints() << endl;
-//    cout << "non-default Human strength/hitpoints: " << h.getStrength() << "/" << h.getHitpoints() << endl;
-//    cout << "non-default Elf strength/hitpoints: " << e.getStrength() << "/" << e.getHitpoints() << endl;
-//    cout << "non-default Cyberdemon strength/hitpoints: " << c.getStrength() << "/" << c.getHitpoints() << endl;
-//    cout << "non-default Balrog strength/hitpoints: " << b.getStrength() << "/" << b.getHitpoints() << endl;
-//    cout << endl << endl;
-//
-//    cout << "Examples of " << h.getSpecies() << " damage: " << endl;
-//    for (int i = 0; i < 10; i++){
-//        int damage = h.getDamage();
-//        cout << " Total damage = " << damage << endl;
-//        cout << endl;
-//    }
-//    cout << endl;
-//
-//
-//
-//    cout << "Examples of " << e.getSpecies() << " damage: " << endl;
-//    for (int i = 0; i < 10; i++){
-//        int damage = e.getDamage();
-//        cout << " Total damage = " << damage << endl;
-//        cout << endl;
-//    }
-//    cout << endl;
-//
-//
-//
-//    cout << "Examples of " << c.getSpecies() << " damage: " << endl;
-//    for (int i = 0; i < 10; i++){
-//        int damage = c.getDamage();
-//        cout << " Total damage = " << damage << endl;
-//        cout << endl;
-//    }
-//    cout << endl;
-//
-//
-//
-//    cout << "Examples of " << b.getSpecies() << " damage: " << endl;
-//    for (int i = 0; i < 10; i++){
-//        int damage = b.getDamage();
-//        cout << " Total damage = " << damage << endl;
-//        cout << endl;
-//    }
-//    cout << endl;
-
+    Cyberdemon c1(100, 100);
+    Human h1(120, 120);
+    
+    battleArena(c1, h1);
+    
+    Balrog b2(20, 20);
+    Human h2(20, 20);
+    
+    battleArena(b2, h2);
+    
+    Elf e2(88, 88);
+    Cyberdemon c2(88, 88);
+    
+    battleArena(e2, c2);
 }
 
+
+
+
+
+
+/*
+ Definition of battleArena. Function passes in two Creature objects (creature1 and
+ creature2). It displays the initial hitpoints of each Creature. It calls getDamage()
+ function for each creature and updates the hitpoints for each via setHitpoints() function.
+ It continues until either or both creatures has less than 0 hitpoints and displays the
+ winner or tie.
+ */
+
 void battleArena(Creature &creature1, Creature &creature2) {
-    cout << "Let the battle begin:" << endl;
+    cout << "LET THE BATTLE BEGIN:" << endl;
     cout << creature1.getSpecies() + " has " << creature1.getHitpoints() << " to start.\n";
     cout << creature2.getSpecies() + " has " << creature2.getHitpoints() << " to start.\n";
+    cout << endl;
     
     do {
         creature2.setHitpoints(creature2.getHitpoints() - creature1.getDamage());
         creature1.setHitpoints(creature1.getHitpoints() - creature2.getDamage());
         
-        if ((creature1.getHitpoints() < 0) && (creature2.getHitpoints() < 0)) {
-            cout << "Both creatures have died and the battle is tied!" << endl;
-        } else if ((creature1.getHitpoints() < 0) && (creature2.getHitpoints() >= 0)) {
-            cout << creature2.getSpecies() + " has won the battle!" << endl;
-        } else if ((creature1.getHitpoints() >= 0) && (creature2.getHitpoints() < 0)) {
-            cout << creature1.getSpecies() + " has won the battle!" << endl;
+        if ((creature1.getHitpoints() <= 0) && (creature2.getHitpoints() <= 0)) {
+            cout << "Both creatures have died and the battle is tied!\n" << endl;
+        } else if ((creature1.getHitpoints() <= 0) && (creature2.getHitpoints() > 0)) {
+            cout << creature2.getSpecies() + " has won the battle!\n" << endl;
+        } else if ((creature1.getHitpoints() > 0) && (creature2.getHitpoints() <= 0)) {
+            cout << creature1.getSpecies() + " has won the battle!\n" << endl;
+        } else {
+            cout << creature1.getSpecies() + " has ";
+            cout << creature1.getHitpoints() << " remaining." << endl;
+            cout << creature2.getSpecies() + " has ";
+            cout << creature2.getHitpoints() << " remaining.\n" << endl;
         }
-    } while ((creature1.getHitpoints() >=0) && (creature2.getHitpoints() >= 0));
+    } while ((creature1.getHitpoints() > 0) && (creature2.getHitpoints() > 0));
 }
 
 /*
- default Human strength/hitpoints: 10/10
- default Elf strength/hitpoints: 10/10
- default Cyberdemon strength/hitpoints: 10/10
- default Balrog strength/hitpoints: 10/10
- non-default Human strength/hitpoints: 20/30
- non-default Elf strength/hitpoints: 40/50
- non-default Cyberdemon strength/hitpoints: 60/70
- non-default Balrog strength/hitpoints: 80/90
+ LET THE BATTLE BEGIN:
+ Elf has 50 to start.
+ Balrog has 50 to start.
 
-
- Examples of Human damage:
- Human attacks for 15 points!
-  Total damage = 15
-
- Human attacks for 5 points!
-  Total damage = 5
-
- Human attacks for 3 points!
-  Total damage = 3
-
- Human attacks for 19 points!
-  Total damage = 19
-
- Human attacks for 13 points!
-  Total damage = 13
-
- Human attacks for 13 points!
-  Total damage = 13
-
- Human attacks for 16 points!
-  Total damage = 16
-
- Human attacks for 11 points!
-  Total damage = 11
-
- Human attacks for 5 points!
-  Total damage = 5
-
- Human attacks for 3 points!
-  Total damage = 3
-
-
- Examples of Elf damage:
- Elf attacks for 20 points!
- Magical attack inflicts 20 additional damage points!
-  Total damage = 40
-
- Elf attacks for 5 points!
- Magical attack inflicts 5 additional damage points!
-  Total damage = 10
-
- Elf attacks for 29 points!
- Magical attack inflicts 29 additional damage points!
-  Total damage = 58
-
- Elf attacks for 13 points!
-  Total damage = 13
-
- Elf attacks for 29 points!
- Magical attack inflicts 29 additional damage points!
-  Total damage = 58
-
- Elf attacks for 21 points!
-  Total damage = 21
-
- Elf attacks for 19 points!
-  Total damage = 19
-
- Elf attacks for 8 points!
-  Total damage = 8
-
- Elf attacks for 18 points!
- Magical attack inflicts 18 additional damage points!
-  Total damage = 36
-
- Elf attacks for 30 points!
-  Total damage = 30
-
-
- Examples of Cyberdemon damage:
- The Cyberdemon attacks for 10 points!
-  Total damage = 10
-
- The Cyberdemon attacks for 19 points!
-  Total damage = 19
-
- The Cyberdemon attacks for 44 points!
-  Total damage = 44
-
- The Cyberdemon attacks for 26 points!
-  Total damage = 26
-
- The Cyberdemon attacks for 55 points!
-  Total damage = 55
-
- The Cyberdemon attacks for 18 points!
-  Total damage = 18
-
- The Cyberdemon attacks for 17 points!
-  Total damage = 17
-
- The Cyberdemon attacks for 1 points!
-  Total damage = 1
-
- The Cyberdemon attacks for 34 points!
-  Total damage = 34
-
- The Cyberdemon attacks for 52 points!
-  Total damage = 52
-
-
- Examples of Balrog damage:
- The Balrog attacks for 11 points!
- Balrog speed attack inflicts 31 additional damage points!
-  Total damage = 42
-
- The Balrog attacks for 5 points!
- Balrog speed attack inflicts 62 additional damage points!
-  Total damage = 67
-
- The Balrog attacks for 51 points!
- Balrog speed attack inflicts 4 additional damage points!
-  Total damage = 55
-
- The Balrog attacks for 51 points!
+ Elf attacks for 26 points!
+ Balrog attacks for 39 points!
  Demonic attack inflicts 50 additional damage points!
- Balrog speed attack inflicts 48 additional damage points!
-  Total damage = 149
+ Balrog speed attack inflicts 47 additional damage points!
+ Balrog has won the battle!
 
- The Balrog attacks for 58 points!
- Balrog speed attack inflicts 63 additional damage points!
-  Total damage = 121
+ LET THE BATTLE BEGIN:
+ Cyberdemon has 100 to start.
+ Human has 120 to start.
 
- The Balrog attacks for 53 points!
- Balrog speed attack inflicts 34 additional damage points!
-  Total damage = 87
+ Cyberdemon attacks for 42 points!
+ Human attacks for 21 points!
+ Cyberdemon has 79 remaining.
+ Human has 78 remaining.
 
- The Balrog attacks for 45 points!
- Demonic attack inflicts 50 additional damage points!
- Balrog speed attack inflicts 78 additional damage points!
-  Total damage = 173
+ Cyberdemon attacks for 69 points!
+ Human attacks for 89 points!
+ Human has won the battle!
 
- The Balrog attacks for 30 points!
- Demonic attack inflicts 50 additional damage points!
- Balrog speed attack inflicts 29 additional damage points!
-  Total damage = 109
+ LET THE BATTLE BEGIN:
+ Balrog has 20 to start.
+ Human has 20 to start.
 
- The Balrog attacks for 78 points!
+ Balrog attacks for 1 points!
+ Balrog speed attack inflicts 11 additional damage points!
+ Human attacks for 8 points!
+ Balrog has 12 remaining.
+ Human has 8 remaining.
+
+ Balrog attacks for 14 points!
  Balrog speed attack inflicts 3 additional damage points!
-  Total damage = 81
+ Human attacks for 11 points!
+ Balrog has won the battle!
 
- The Balrog attacks for 74 points!
- Balrog speed attack inflicts 75 additional damage points!
-  Total damage = 149
+ LET THE BATTLE BEGIN:
+ Elf has 88 to start.
+ Cyberdemon has 88 to start.
 
+ Elf attacks for 80 points!
+ Cyberdemon attacks for 3 points!
+ Elf has 85 remaining.
+ Cyberdemon has 8 remaining.
+
+ Elf attacks for 86 points!
+ Magical attack inflicts 86 additional damage points!
+ Cyberdemon attacks for 64 points!
+ Elf has won the battle!
 
  Program ended with exit code: 0
  */

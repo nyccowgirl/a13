@@ -32,37 +32,54 @@ using namespace std;
 namespace cs_creature {
 
 /*
- Documentation to be completed
+ 
+ Class Invariant: a Demon object has inherits two data members from a Creature object -
+ strength, which stores the damage the Creature inflicts; and hitpoints, which stores the
+ damage the Creature can sustain.
+ 
  */
 
-Demon::Demon()
-: Creature()
-{
-}
-
-Demon::Demon(int newStrength, int newHitpoints)
-: Creature(newStrength, newHitpoints)
-{
-}
-
-string Demon::getSpecies() const {
-    return "Demon";
-}
-
-int Demon::getDamage() const {
-    int damage;
-    
-    // All Creatures inflict damage which is a random number up to their strength
-    damage = Creature::getDamage();
-//    cout << " attacks for " << damage << " points!" << endl;
-
-    
-    // Demons can inflict damage of 50 with a 25% chance
-    if (rand() % 4 == 0) {
-        damage = damage + 50;
-        cout << "Demonic attack inflicts 50 additional damage points!" << endl;
+    Demon::Demon()
+    : Creature()
+    {
     }
-    
-    return damage;
-}
+
+
+
+
+
+
+    Demon::Demon(int newStrength, int newHitpoints)
+    : Creature(newStrength, newHitpoints)
+    {
+    }
+
+
+
+
+
+
+    string Demon::getSpecies() const {
+        return "Demon";
+    }
+
+
+
+
+
+
+    int Demon::getDamage() const {
+        int damage;
+        
+        // All Creatures inflict damage which is a random number up to their strength
+        damage = Creature::getDamage();
+        
+        // Demons can inflict damage of 50 with a 25% chance
+        if (rand() % 4 == 0) {
+            damage = damage + 50;
+            cout << "Demonic attack inflicts 50 additional damage points!" << endl;
+        }
+        
+        return damage;
+    }
 }

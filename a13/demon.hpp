@@ -33,16 +33,37 @@ using namespace std;
 namespace cs_creature {
 
 /*
- Documentation to be completed
+ 
+ The Demon class is derived from the Creature class that can be used to create objects that
+ store a Creature, including its strength and hitpoints. The following functions are
+ available:
+ 
+ Demon();
+  post: The calling object has been created and initialized with default from the Creature
+        class of 10 for strength and hitpoint.
+
+ Demon(int newStrength, int newHitpoints);
+  pre: newStrength and newHitpoints are greater than 0
+  post: The calling object has been created and initialized with base class default
+        constructor from Creature class so that strength is the newStrength parameter, and
+        the hitpoint is the newHitpoints parameter.
+ 
+ string getSpecies() const;
+  post: Returns the type of Creature as Demon.
+ 
+ int getDamage() const;
+  post: Returns value of damage that Demon inflicts in round of combat
+ 
  */
 
 class Demon: public Creature {
-public:
-    Demon();
-    Demon(int newStrength, int newHitpoints);
-    string getSpecies() const;  // returns the type of the species
-    int getDamage() const;  // returns the amount of damage this Creature inflicts                              // in one round of combat
-};
+    public:
+        Demon();
+        Demon(int newStrength, int newHitpoints);
+        string getSpecies() const;          // returns the type of the species
+        int getDamage() const;              // returns the amount of damage this Creature
+                                            // inflicts in one round of combat
+    };
 }
 
 #endif /* demon_hpp */

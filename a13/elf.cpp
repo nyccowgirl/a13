@@ -32,37 +32,56 @@ using namespace std;
 namespace cs_creature {
 
 /*
- Documentation to be completed
+ 
+ Class Invariant: an Elf object has inherits two data members from a Creature object -
+ strength, which stores the damage the Creature inflicts; and hitpoints, which stores the
+ damage the Creature can sustain.
+ 
  */
 
-Elf::Elf()
-: Creature()
-{
-}
-
-Elf::Elf(int newStrength, int newHitpoints)
-: Creature(newStrength, newHitpoints)
-{
-}
-
-string Elf::getSpecies() const {
-    return "Elf";
-}
-
-int Elf::getDamage() const {
-    int damage;
-    
-    // All Creatures inflict damage which is a random number up to their strength
-    damage = Creature::getDamage();
-//    cout << getSpecies() << " attacks for " << damage << " points!" << endl;
-
-    
-    // Elves inflict double magical damage with a 50% chance
-    if ((rand() % 2) == 0) {
-        cout << "Magical attack inflicts " << damage << " additional damage points!" << endl;
-        damage *= 2;
+    Elf::Elf()
+    : Creature()
+    {
     }
-    
-    return damage;
-}
+
+
+
+
+
+
+    Elf::Elf(int newStrength, int newHitpoints)
+    : Creature(newStrength, newHitpoints)
+    {
+    }
+
+
+
+
+
+
+
+    string Elf::getSpecies() const {
+        return "Elf";
+    }
+
+
+
+
+
+
+
+    int Elf::getDamage() const {
+        int damage;
+        
+        // All Creatures inflict damage which is a random number up to their strength
+        damage = Creature::getDamage();
+        
+        // Elves inflict double magical damage with a 50% chance
+        if ((rand() % 2) == 0) {
+            cout << "Magical attack inflicts " << damage << " additional damage points!" << endl;
+            damage *= 2;
+        }
+        
+        return damage;
+    }
 }

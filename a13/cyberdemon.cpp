@@ -32,32 +32,35 @@ using namespace std;
 namespace cs_creature {
 
 /*
- Documentation to be completed
+ 
+ Class Invariant: a Cyberdemon object has inherits a Demon object that inherits two data
+ members from a Creature object - strength, which stores the damage the Creature inflicts;
+ and hitpoints, which stores the damage the Creature can sustain.
+ 
  */
 
-Cyberdemon::Cyberdemon()
-: Demon()
-{
-}
+    Cyberdemon::Cyberdemon()
+    : Demon()
+    {
+    }
 
-Cyberdemon::Cyberdemon(int newStrength, int newHitpoints)
-: Demon(newStrength, newHitpoints)
-{
-}
 
-string Cyberdemon::getSpecies() const {
-    return "Cyberdemon";
-}
 
-//int Cyberdemon::getDamage() const {
-//    int damage;
-//    
-////    cout << "The Cyberdemon";
-//    
-//    // All Creatures inflict damage which is a random number up to their strength
-//    // Demons can inflict damage of 50 with a 25% chance
-//    damage = Demon::getDamage();
-//    
-//    return damage;
-//}
+
+
+
+    Cyberdemon::Cyberdemon(int newStrength, int newHitpoints)
+    : Demon(newStrength, newHitpoints)
+    {
+    }
+
+
+
+
+
+
+
+    string Cyberdemon::getSpecies() const {
+        return "Cyberdemon";
+    }
 }

@@ -33,16 +33,32 @@ using namespace std;
 namespace cs_creature {
 
 /*
- Documentation to be completed
+ 
+ The Cyberdemon class is derived from the Demon class that is derived from the Creature
+ class and can be used to create objects that store a Creature, including its strength and
+ hitpoints. The following functions are available:
+ 
+ Cyberdemon();
+  post: The calling object has been created and initialized with default from the Demon
+        class which is derived from Creature class of 10 for strength and hitpoint.
+
+ Demon(int newStrength, int newHitpoints);
+  pre: newStrength and newHitpoints are greater than 0
+  post: The calling object has been created and initialized with Demon class which is
+        derived from base class default constructor from Creature class so that strength is
+        the newStrength parameter, and the hitpoint is the newHitpoints parameter.
+ 
+ string getSpecies() const;
+  post: Returns the type of Demon as Cyberdemon.
+ 
  */
 
 class Cyberdemon: public Demon {
-public:
-    Cyberdemon();
-    Cyberdemon(int newStrength, int newHitpoints);
-    string getSpecies() const;  // returns the type of the species
-//    int getDamage() const;  // returns the amount of damage this Creature inflicts                              // in one round of combat
-};
+    public:
+        Cyberdemon();
+        Cyberdemon(int newStrength, int newHitpoints);
+        string getSpecies() const;          // returns the type of the species
+    };
 }
 
 #endif /* cyberdemon_hpp */

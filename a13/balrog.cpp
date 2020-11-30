@@ -32,38 +32,57 @@ using namespace std;
 namespace cs_creature {
 
 /*
- Documentation to be completed
+ 
+ Class Invariant: a Balrog object has inherits a Demon object that inherits two data
+ members from a Creature object - strength, which stores the damage the Creature inflicts;
+ and hitpoints, which stores the damage the Creature can sustain.
+ 
  */
 
-Balrog::Balrog()
-: Demon()
-{
-}
+    Balrog::Balrog()
+    : Demon()
+    {
+    }
 
-Balrog::Balrog(int newStrength, int newHitpoints)
-: Demon(newStrength, newHitpoints)
-{
-}
 
-string Balrog::getSpecies() const {
-    return "Balrog";
-}
 
-int Balrog::getDamage() const {
-    int damage;
-    
-//    cout << "The Balrog";
-    
-    // All Creatures inflict damage which is a random number up to their strength
-    // Demons can inflict damage of 50 with a 25% chance
-    damage = Demon::getDamage();
-    
-    // Balrogs are so fast they get to attack twice
 
-    int damage2 = (rand() % getStrength()) + 1;
-    cout << "Balrog speed attack inflicts " << damage2 << " additional damage points!" << endl;
-    damage += damage2;
-    
-    return damage;
-}
+
+
+    Balrog::Balrog(int newStrength, int newHitpoints)
+    : Demon(newStrength, newHitpoints)
+    {
+    }
+
+
+
+
+
+
+
+    string Balrog::getSpecies() const {
+        return "Balrog";
+    }
+
+
+
+
+
+
+
+    int Balrog::getDamage() const {
+        int damage;
+                
+        // All Creatures inflict damage which is a random number up to their strength
+        // Demons can inflict damage of 50 with a 25% chance
+        damage = Demon::getDamage();
+        
+        // Balrogs are so fast they get to attack twice
+
+        int damage2 = (rand() % getStrength()) + 1;
+        cout << "Balrog speed attack inflicts " << damage2 << " additional damage points!" << endl;
+        damage += damage2;
+        
+        return damage;
+    }
 }

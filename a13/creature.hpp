@@ -32,20 +32,54 @@ using namespace std;
 namespace cs_creature {
 
 /*
- Documentation to be completed
+ 
+ The Creature class can be used to create objects that store a Creature, including its
+ strength and hitpoints. The following functions are available:
+ 
+ Creature();
+  post: The calling object has been created and initialized with default of 10 for strength
+        and hitpoint.
+
+ Creature(int newStrength, int newHitpoints);
+  pre: newStrength and newHitpoints are greater than 0
+  post: The calling object has been created and initialized so that strength is the
+        newStrength parameter, and the hitpoint is the newHitpoints parameter.
+ 
+ void setStrength(int newStrength);
+  pre: newStrength is greater than 0
+  post: The calling object has been created and initialized so that strength is the
+        newStrength parameter.
+
+ int getStrength() const;
+  post: Returns value of strength data member.
+ 
+ void setHitpoints(int newHitpoints);
+  pre: newHitpoint is greater than 0
+  post: The calling object has been created and initialized so that hitpoint is the
+        newHitpoint parameter.
+ 
+ int getHitpoints() const;
+  post: Returns value of hitpoint data member.
+ 
+ virtual string getSpecies() const = 0;
+  post: Pure virtual function that other derived classes must implement.
+ 
+ virtual int getDamage() const;
+  post: Returns value of damage that Creature inflicts in round of combat
+ 
  */
 
     class Creature {
         public:
-            Creature();             // initialize to Human, 10 strength, 10 hitpoints
+            Creature();                         // initialize to 10 strength, 10 hitpoints
             Creature(int newStrength, int newHitpoints);
             void setStrength(int newStrength);
             int getStrength() const;
             void setHitpoints(int newHitpoints);
             int getHitpoints() const;
             virtual string getSpecies() const = 0;  // returns the type of the species
-            virtual int getDamage() const;  // returns the amount of damage this Creature inflicts                      // in one round of combat
-
+            virtual int getDamage() const;      // returns the amount of damage this
+                                                // Creature inflicts in one round of combat
 
         private:
             int strength;   // how much damage this Creature inflicts
